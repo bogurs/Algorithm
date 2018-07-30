@@ -25,7 +25,7 @@ public class DfsBfs_LinkedList {
 		}
 	}
 	
-	public static void dfs(int startPoint, int numOfNode) {
+	public static void dfs(int startPoint) {
 		Stack<Integer> s = new Stack<>();
 		s.push(startPoint);
 		
@@ -45,7 +45,7 @@ public class DfsBfs_LinkedList {
 		}
 	}
 
-	public static void bfs(int startPoint, int numOfNode) {
+	public static void bfs(int startPoint) {
 		Queue<Integer> q = new LinkedList<>();
 		q.add(startPoint);
 		
@@ -89,8 +89,8 @@ public class DfsBfs_LinkedList {
 		Stack<Integer> s = new Stack<>(); // DFS를 위한 스택 초기화
 		s.push(v); // 시작 정점을 스택에 push
 		dfsR(s, n);
-//		dfs(v, n);
-//		bfs(v, n);
+//		dfs(v);
+//		bfs(v);
 
 		sc.close();
 	}
