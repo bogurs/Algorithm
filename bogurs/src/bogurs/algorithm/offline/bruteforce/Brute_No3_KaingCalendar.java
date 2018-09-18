@@ -27,44 +27,20 @@ public class Brute_No3_KaingCalendar {
         	String[] line = bf.readLine().split(" ");
             int m = Integer.valueOf(line[0]);
             int n = Integer.valueOf(line[1]);
-            int x = Integer.valueOf(line[2]);
-            int y = Integer.valueOf(line[3]);
-			int nx = x;
-			int ny = y;
-			
-			int l = 0;
-			int g = 0;
-			int small = 0;
-			int cnt = 0;
-			if (m < n) {
-				small = m;
-				y = cnt = x;
-			} else {
-				small = n;
-				x = cnt = y;
-			}
-			for (int j = 1; j < small/2+1; j++) {
-				if (m % j != 0) continue;
-				if (n % j != 0) continue;
-				g = j;
-			}
-			
-			l = (m * n) / g;
-			
-			while (cnt < l) {
-				if (x == nx && y == ny) {
-					break;
-				}
-				
-				x = (x + small) % m;
-				y = (y + small) % n;
-				cnt += small;
-			}
-			if (cnt > l) {
-				System.out.println(-1);
-			} else {
-				System.out.println(cnt);
-			}
+            int x = Integer.valueOf(line[2])-1;
+            int y = Integer.valueOf(line[3])-1;
+            
+            boolean ok = false;
+            for (int i = x; i < (m*n); i+=m) {
+            	if (i%n == y) {
+            		ok = true;
+            		System.out.println(i+1);
+            		break;
+            	}
+            }
+            if (!ok) {
+            	System.out.println(-1);
+            }
 		}
 		
 		bf.close();
