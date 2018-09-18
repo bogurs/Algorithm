@@ -21,43 +21,45 @@ import java.util.Arrays;
  */
 public class QuickSort {
 	
-	private static void quickSort(int[] arr, int s, int e) {
-		int pivot = arr[s];
-		int bs = s;
-		int be = e;
-		while (s < e) {
-			while (pivot <= arr[e] && s < e) {
-				e--;
-			}
-			if (s > e) break;
-			while (pivot >= arr[s] && s < e) {
-				s++;
-			}
-			if (s > e) break;
-			int temp = arr[s];
-			arr[s] = arr[e];
-			arr[e] = temp;
+	private static void quickSort(int[] arr, int start, int end) {
+		int pivot = end;
+		int bs = start;
+		int be = end;
+		
+		if (start >= end) {
+			return;
 		}
-		int temp = arr[bs];
-		arr[bs] = arr[s];
-		arr[s] = temp;
+		
+		while (start < end) {
+			while (arr[pivot] >= arr[start]) {
+				start++;
+				if (start == be) break;
+			}
+			while (arr[pivot] <= arr[end]) {
+				end--;
+				if (end == bs) break;
+			}
+			if (start >= end) break;
+			int temp = arr[start];
+			arr[start] = arr[end];
+			arr[end] = temp;
+			System.out.println(Arrays.toString(arr));
+		}
+		
+		int temp = arr[start];
+		arr[start] = arr[pivot];
+		arr[pivot] = temp;
+		pivot = start;
 		System.out.println(Arrays.toString(arr));
-		if (bs < s) {
-			quickSort(arr, bs, s-1);
-		}
-		if (be > e) {
-			quickSort(arr, s+1, be);
-		}
+		
+		quickSort(arr, bs, pivot-1);
+		quickSort(arr, pivot+1, be);
 	}
 
 	public static void main(String[] args) {
 		int[] arr = {8, 5, 4, 1, 6, 2, 7, 3};
-		System.out.println(Arrays.toString(arr));
-		quickSort(arr, 0, arr.length-1); // 오름차순 (작은 수 퀵정렬)
-		System.out.println(Arrays.toString(arr));
-//		QuickSort ms2 = new QuickSort(1);
-//		ms2.quickSort(arr); // 내림차순 (큰 수 퀵정렬)
-//		System.out.println(Arrays.toString(arr));
+		System.out.println(Arrays.toString(arr)); // 퀵 정렬 전
+		quickSort(arr, 0, arr.length-1);
 	}
 
 }

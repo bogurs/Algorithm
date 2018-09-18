@@ -5,11 +5,12 @@ import java.util.Arrays;
 /**
  * 합병 정렬: n개만큼 배열을 나눈뒤 나눈 각 배열을 다시 합치면서 정렬하는 알고리즘
  * 시간복잡도: O(nlogn)
- * 공간복잡도: O(2n)
+ * 공간복잡도: O(n^2)
  * 
- * 1. n개만큼의 배열로 주어진 배열을 쪼갠다.
- * 2. 배열을 2개씩 비교하면서 정렬된 새 배열을 만든다.
- * 3. 원래 배열의 size가 될 때까지 2를 반복한다.
+ * (1) 리스트의 길이가 0 또는 1이면 이미 정렬된 것으로 본다. 그렇지 않은 경우에는
+ * (2) 정렬되지 않은 리스트를 절반으로 잘라 비슷한 크기의 두 부분 리스트로 나눈다.
+ * (3) 각 부분 리스트를 재귀적으로 합병 정렬을 이용해 정렬한다.
+ * (4) 두 부분 리스트를 다시 하나의 정렬된 리스트로 합병한다.
  * @author thsong
  *
  */
@@ -31,7 +32,6 @@ public class MergeSort {
 			mergeSort(arr, temp, s, m);
 			mergeSort(arr, temp, m+1, e);
 			merge(arr, temp, s, m, e);
-//			System.out.println(Arrays.toString(arr));
 		}
 	}
 
