@@ -1,4 +1,4 @@
-package bogurs.algorithm;
+package bogurs.algorithm.offline.bruteforce.bitmask;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,19 +12,16 @@ public class BitOperation {
 		int maxN = 20;
 		
 		int res=0;
-		String line = null;
-		String[] lintSpl = null;
-		int x;
 		StringBuilder sb = new StringBuilder();
 		while(n-- > 0){
-			line = bf.readLine();
+			String line = bf.readLine();
 			if("all".equals(line)){
 				res = (1<<(maxN+1))-1;
 			} else if("empty".equals(line)){
 				res = 0;
 			} else {
-				lintSpl = line.split(" ");
-				x = Integer.parseInt(lintSpl[1]);
+				String[] lintSpl = line.split(" ");
+				int x = Integer.parseInt(lintSpl[1]);
 				if("remove".equals(lintSpl[0])){
 					res = res&~(1<<x);
 				} else if("check".equals(lintSpl[0])){
@@ -41,5 +38,6 @@ public class BitOperation {
 			}
 		}
 		System.out.println(sb);
+		bf.close();
 	}
 }
