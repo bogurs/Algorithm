@@ -2,6 +2,8 @@ package bogurs.algorithm;
 
 import org.junit.jupiter.api.Test;
 
+import bogurs.algorithm.offline.bruteforce.permutation.Permutation_1722;
+
 class Permutation_1722Test {
 
 	@Test

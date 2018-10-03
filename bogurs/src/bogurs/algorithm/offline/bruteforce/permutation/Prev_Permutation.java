@@ -1,4 +1,4 @@
-package bogurs.algorithm;
+package bogurs.algorithm.offline.bruteforce.permutation;
 
 /**
  * 이전 순열 구하기

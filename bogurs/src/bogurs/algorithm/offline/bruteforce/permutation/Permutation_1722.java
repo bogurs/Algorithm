@@ -1,4 +1,4 @@
-package bogurs.algorithm;
+package bogurs.algorithm.offline.bruteforce.permutation;
 
 import java.util.Scanner;
 
