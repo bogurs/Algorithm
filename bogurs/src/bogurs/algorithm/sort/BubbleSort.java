@@ -19,7 +19,7 @@ public class BubbleSort {
 		int arrLen = arr.length;
 		
 		if (option == 0) {
-			for (int i = arrLen-1; i >= 0; i--) {
+			for (int i = arrLen-1; i > 0; i--) {
 				for (int j = 0; j < i; j++) {
 					if (arr[j] > arr[j+1]) {
 						int temp = arr[j];
@@ -29,7 +29,7 @@ public class BubbleSort {
 				}
 			}
 		} else if (option == 1) {
-			for (int i = arrLen-1; i >= 0; i--) {
+			for (int i = arrLen-1; i > 0; i--) {
 				for (int j = 0; j < i; j++) {
 					if (arr[j] < arr[j+1]) {
 						int temp = arr[j];
